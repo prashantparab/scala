@@ -32,10 +32,11 @@ object Result {
     // Write your code here
         var left_sum : Int = 0 
         var right_sum : Int = 0
-        var start : Int = 2
+        var final_sum : Int = 0 
+        var start : Int = (arr.length-1)
         var end : Int = 0 
-        for (i<- 0 to 2){
-            for (j<- 0 to 2){
+        for (i<- 0 to (arr.length-1)){
+            for (j<- 0 to (arr.length-1)){
                 if(j==start) {
                     left_sum += arr(i)(j)
                 }
@@ -44,8 +45,8 @@ object Result {
             start -= 1
         }
 
-        for (i<- 0 to 2){
-            for (j<- 0 to 2){
+        for (i<- 0 to (arr.length-1)){
+            for (j<- 0 to (arr.length-1)){
                 if(j==end) {
                     right_sum += arr(i)(j)
                 }
@@ -53,8 +54,13 @@ object Result {
             }
             end += 1
         }
-         
-         val final_sum : Int = left_sum-right_sum 
+
+        if(left_sum > right_sum) {
+          final_sum = left_sum-right_sum 
+        } else{
+          final_sum = right_sum-left_sum 
+        }
+
          return final_sum
     }
 }
