@@ -21,17 +21,22 @@ object Solution {
         val builder = StringBuilder.newBuilder
         
         for(i<- 1 to n ) {
-            for(i<- 1 to (n) ){
+            for(i<- 1 to (end-1) ){
                 builder.append(space_string)
             } 
             for(i<- 1 to count){
                 builder.append(hash_string)
             }
+            if(i<n){
+                builder.append("\n")
+            }
+            count +=1
+            end -=1
         }
         val result = builder.toString()
-        println(result)
+        print(result)
     }
-
+    def ltrim(s: String) = s.replaceAll("^\\s+", "")
     def main(args: Array[String]) {
         val stdin = scala.io.StdIn
 
